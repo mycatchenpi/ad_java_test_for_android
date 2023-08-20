@@ -8,10 +8,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
+@ToString(exclude = "songHistoryList")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +35,6 @@ public class User {
         songHistoryList.add(songHistory);
         songHistory.setUser(this);
     }
+
+
 }

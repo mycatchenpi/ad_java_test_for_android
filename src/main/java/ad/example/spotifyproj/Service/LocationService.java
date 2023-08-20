@@ -15,7 +15,7 @@ public class LocationService {
         }       
     }
 
-    public int findLocationIdByAddress(String address){
+    public Integer findLocationIdByAddress(String address){
         return locationRepository.findLocationIdByAddress(address);
     }
 

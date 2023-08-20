@@ -54,6 +54,7 @@ public class RecordController {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
         String address = GeocodingUtility.getAddressFromCoordinates(latitude, longitude);
+        System.out.println("received address: " + address);
 
         // Create and set up entities
         Song song = new Song();

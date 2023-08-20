@@ -37,11 +37,11 @@ public class HolidayController {
             // Singapore National Day
             List<Song> songList = holidayService.getSongForHoliday("Singapore National Day");
             return new ResponseEntity<>(songList, HttpStatus.OK);
-        } else if (isFestival(currentDate, 8, 11)) {
+        } else if (isFestival(currentDate, 8, 13)) {
             // new year
             List<Song> songList = holidayService.getSongForHoliday("New Year's Day");
             return new ResponseEntity<>(songList, HttpStatus.OK);
-        } else if (isFestival(currentDate, 1, 21, 2, 20)) {
+        } else if (isFestival(currentDate, 1, 21, 9, 20)) {
             // Chinese New Year
             List<Song> songList = holidayService.getSongForHoliday("Chinese New Year");
             return new ResponseEntity<>(songList, HttpStatus.OK);
@@ -65,17 +65,17 @@ public class HolidayController {
     @GetMapping("/android")
     public ResponseEntity<List<SendSong>> getSongOfHolidayForAndroid() {
         LocalDate currentDate = LocalDate.now();
-        if (isFestival(currentDate, 8, 9)) {
+        if (isFestival(currentDate, 8, 19)) {
             // Singapore National Day
             List<Song> songList = holidayService.getSongForHoliday("Singapore National Day");
             List<SendSong> sendSongList = getSendSong(songList);
             return new ResponseEntity<>(sendSongList, HttpStatus.OK);
-        } else if (isFestival(currentDate, 8, 11)) {
+        } else if (isFestival(currentDate, 8, 13)) {
             // new year
             List<Song> songList = holidayService.getSongForHoliday("New Year's Day");
             List<SendSong> sendSongList = getSendSong(songList);
             return new ResponseEntity<>(sendSongList, HttpStatus.OK);
-        } else if (isFestival(currentDate, 1, 21, 2, 20)) {
+        } else if (isFestival(currentDate, 1, 21, 9, 20)) {
             // Chinese New Year
             List<Song> songList = holidayService.getSongForHoliday("Chinese New Year");
             List<SendSong> sendSongList = getSendSong(songList);

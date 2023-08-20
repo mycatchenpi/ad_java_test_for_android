@@ -30,6 +30,7 @@ public class RecordService {
         if (existingSong == null) {
             songRepository.save(song);
         } else {
+
             song = existingSong; // Use the existing song
         }
 

@@ -12,10 +12,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
+@ToString(exclude = "songHistoryList")
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

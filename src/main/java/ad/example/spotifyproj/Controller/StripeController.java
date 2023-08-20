@@ -2,6 +2,7 @@ package ad.example.spotifyproj.Controller;
 
 import ad.example.spotifyproj.Model.User;
 import ad.example.spotifyproj.Service.UserService;
+import com.stripe.param.PaymentMethodCreateParams;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -59,8 +60,8 @@ public class StripeController {
 
 
     @PostMapping("/create-subscription")
-    public ResponseEntity<?> createSubscriptionSession(@RequestBody Information information) {
-        User user = userService.findUserByUsername(information.getUsername());
+    public ResponseEntity<?> createSubscriptionSession(@RequestBody String username) {
+        User user = userService.findUserByUsername(username);
         try {
             System.out.println("Received a request to create a subscription session for customer: ");
             HttpClient httpClient = HttpClients.createDefault();
@@ -102,6 +103,7 @@ public class StripeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(e.getMessage());
         }
+
     }
 
     // Helper method to parse the session ID from the API response

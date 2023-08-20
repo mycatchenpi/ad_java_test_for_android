@@ -12,7 +12,7 @@ public interface LocationRepository extends JpaRepository<UserLocation,Long> {
     
     
     @Query("SELECT l.id from UserLocation l where l.address = :address")
-    public int findLocationIdByAddress(@Param("address") String address);
+    public Integer findLocationIdByAddress(@Param("address") String address);
 
     public UserLocation findByAddress(String address);
 
